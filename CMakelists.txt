@@ -1,0 +1,19 @@
+# - Main CMake buildscript for dataflowcode GUI
+cmake_minimum_required(VERSION 3.2)
+project(DataFlowCodeGUI VERSION 0.1)
+
+set(CMAKE_VERBOSE_MAKEFILE ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Werror -Wfatal-errors -Wshadow")
+set(CMAKE_EXE_LINKER_FLAGS "-L/opt/X11/lib -lGL -lX11 -lpng")
+
+# - Declare the main exe
+add_executable(dataflowcode-gui dataflowcode-gui.cpp)
+#target_link_libraries(dataflowcode-gui PRIVATE DataFlowCodeGUI)
+
+# - Add the lib directory to the build
+target_include_directories(dataflowcode-gui
+  PRIVATE lib /opt/X11/include
+  )
+
