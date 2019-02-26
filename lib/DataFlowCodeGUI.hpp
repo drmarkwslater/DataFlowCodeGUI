@@ -2,15 +2,22 @@
 #define DATAFLOWCODEGUI_HPP
 
 #include "olcPixelGameEngine.h"
+#include "ConsoleOutputWindow.hpp"
 
 class DataFlowCodeGUI : public olc::PixelGameEngine
 {
 public:
     DataFlowCodeGUI();
 
-public:
     bool OnUserCreate() override;
-    bool OnUserUpdate(float fElapsedTime) override;
+    bool OnUserUpdate(const float fElapsedTime) override;
+
+    void StartDFCRuntime();
+
+private:
+    ConsoleOutputWindow consoleOutput_;
+
+    void DrawWindowBorders();
 };
 
 #endif

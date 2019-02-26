@@ -13,14 +13,37 @@ bool DataFlowCodeGUI::OnUserCreate()
 
 bool DataFlowCodeGUI::OnUserUpdate(float /*fElapsedTime*/)
 {
-    // called once per frame
-    for (int x = 0; x < ScreenWidth(); x++)
-    {
-        for (int y = 0; y < ScreenHeight(); y++)
-        {
-            Draw(x, y, olc::Pixel(rand() % 255, rand() % 255, rand()% 255));
-        }
-    }
+    // Draw borders
+    DrawWindowBorders();
+    
+    // Draw text
+    DrawString(1, 1 + ScreenHeight() * 2/3, consoleOutput_.GetTextBuffer(ScreenWidth() / 8 - 2, ScreenHeight() - 2 / (3*8)));
 
     return true;
+}
+
+void DataFlowCodeGUI::StartDFCRuntime()
+{
+    consoleOutput_.Message("Starting DFC Runtime...");
+    consoleOutput_.Message("DFC Runtime Started.");
+}
+
+void DataFlowCodeGUI::DrawWindowBorders()
+{
+    // Do borders for debug and output windows
+    for (int x = 0; x < ScreenWidth(); x++) 
+    {
+        Draw(x, 0);
+        Draw(x, ScreenHeight() - 1);
+    }
+
+    for (int y = 0; y < ScreenHeight(); y++) 
+    {
+        Draw(ScreenWidth() / 2, y);
+    }
+
+    for (int x = 0; x < ScreenWidth()/2; x++) 
+    {
+        Draw(x, ScreenHeight() * 2/3);
+    }
 }

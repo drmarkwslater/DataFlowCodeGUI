@@ -2,8 +2,12 @@
 
 int main()
 {
-  DataFlowCodeGUI demo;
-  if (demo.Construct(400, 300, 2, 2))
-    demo.Start();
-  return 0;
+    DataFlowCodeGUI gui;
+    if (gui.Construct(800, 300, 2, 2))
+    {
+        gui.StartDFCRuntime();
+        gui.Start();
+    }
+
+    return 0;
 }
