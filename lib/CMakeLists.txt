@@ -2,6 +2,8 @@
 add_library(DataFlowCodeGUI STATIC
   DataFlowCodeGUI.cpp
   DataFlowCodeGUI.hpp
+  DataFlowCodeRuntime.cpp
+  DataFlowCodeRuntime.hpp
   ConsoleOutputWindow.hpp
   ConsoleOutputWindow.cpp
   olcPixelGameEngine.h

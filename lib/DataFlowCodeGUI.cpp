@@ -5,6 +5,11 @@ DataFlowCodeGUI::DataFlowCodeGUI()
     sAppName = "DataFlowCodeGUI";
 }
 
+void DataFlowCodeGUI::SetDFCRuntime(std::shared_ptr<DataFlowCodeRuntime> ptr)
+{
+    dfcRuntime_ = ptr;
+}
+
 bool DataFlowCodeGUI::OnUserCreate()
 {
     // Called once at the start, so create things here
@@ -20,12 +25,6 @@ bool DataFlowCodeGUI::OnUserUpdate(float /*fElapsedTime*/)
     DrawString(1, 1 + ScreenHeight() * 2/3, consoleOutput_.GetTextBuffer(ScreenWidth() / 8 - 2, ScreenHeight() - 2 / (3*8)));
 
     return true;
-}
-
-void DataFlowCodeGUI::StartDFCRuntime()
-{
-    consoleOutput_.Message("Starting DFC Runtime...");
-    consoleOutput_.Message("DFC Runtime Started.");
 }
 
 void DataFlowCodeGUI::DrawWindowBorders()

@@ -20,5 +20,7 @@ std::string ConsoleOutputWindow::GetTextBuffer(int /*num_cols*/, int /*num_rows*
 void ConsoleOutputWindow::Message(const std::string &msg)
 {
     // add this message to the buffer
+    mtx_.lock();
     buffer_.push_back(msg);
+    mtx_.unlock();
 }

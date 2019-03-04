@@ -3,10 +3,12 @@
 
 #include <string>
 #include <vector>
+#include <mutex>
 
 class ConsoleOutputWindow 
 {
 private:
+    std::mutex mtx_;
     std::vector<std::string> buffer_;
 
 public:
